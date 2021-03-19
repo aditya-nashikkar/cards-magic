@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="centered" *ngIf="loaderSign">
+        <img src="https://loading.io/spinners/typing/lg.-text-entering-comment-loader.gif" alt="">
+    </div>
+    <div class="row" style="margin-top: 5%;">
+        <div class="col-sm-4 shadow rounded" (click)="sendChoice(1)">
+            <div class="row">
+                <div 
+                    *ngFor="let f of firstRow" 
+                    class="outline shadow rounded col-xs-4">
+                    <div class="top">
+                        <span [style.color]="f.color">{{ f.number }}</span>
+                        <span [innerHtml]="f.type" [style.color]="f.color"></span>
+                    </div>
+                    <h1 [innerHtml]="f.type" [style.color]="f.color"></h1>
+                    <div class="bottom"><span [innerHtml]="f.type" [style.color]="f.color"></span></div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-4 shadow rounded" (click)="sendChoice(2)">
+                <div class="row">
+                    <div 
+                        *ngFor="let s of secondRow" 
+                        class="outline shadow rounded col-xs-4">
+                        <div class="top">
+                            <span [style.color]="s.color">{{ s.number }}</span>
+                            <span [innerHtml]="s.type" [style.color]="s.color"></span>
+                        </div>
+                        <h1 [innerHtml]="s.type" [style.color]="s.color"></h1>
+                        <div class="bottom"><span [innerHtml]="s.type" [style.color]="s.color"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 shadow rounded" (click)="sendChoice(3)">
+                    <div class="row">
+                        <div 
+                            *ngFor="let t of thirdRow" 
+                            class="outline shadow rounded col-xs-4">
+                            <div class="top">
+                                <span [style.color]="t.color">{{ t.number }}</span>
+                                <span [innerHtml]="t.type" [style.color]="t.color"></span>
+                            </div>
+                            <h1 [innerHtml]="t.type" [style.color]="t.color"></h1>
+                            <div class="bottom"><span [innerHtml]="t.type" [style.color]="t.color"></span></div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>    
+

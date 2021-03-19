@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+span { 
+    display: block; 
+}
+ 
+.outline { 
+    width: 110px; 
+    border: 0px solid black; 
+    text-align: center; 
+    padding: 10px;
+    margin: 0 auto; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    background: #FFF; 
+}
+
+.top { 
+    text-align: left; 
+}
+
+.bottom { 
+    text-align: right; 
+}
+ 
+.shadow { 
+    box-shadow: 1px 1px 3px #000; 
+    -moz-box-shadow: 1px 1px 3px #000; 
+    -webkit-box-shadow: 1px 1px 3px #000; 
+}
+
+.rounded { 
+    border-radius:10px; 
+    -moz-border-radius:10px; 
+    -webkit-border-radius:10px; 
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 100;
+  }
