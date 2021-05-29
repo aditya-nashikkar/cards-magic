@@ -1,13 +1,29 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+            <h4 class="mb-0">
+                <a class="nav-link" href="#" style="color: #ffffff">Nice'NWise</a>
+            </h4>
+        </li>
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li> -->
+    </ul>
+</nav>
 <div class="container-fluid">
     <div class="centered" *ngIf="loaderSign">
         <img src="https://loading.io/spinners/typing/lg.-text-entering-comment-loader.gif" alt="">
     </div>
-    <div class="row" style="margin-top: 5%;">
+    <div class="row border mt-3 mb-5 bg-white rounded cursor-pointer">
         <div class="col-sm-4 shadow rounded" (click)="sendChoice(1)">
             <div class="row">
-                <div 
-                    *ngFor="let f of firstRow" 
-                    class="outline shadow rounded col-xs-4">
+                <div *ngFor="let f of firstRow" class="outline shadow rounded col-xs-4">
                     <div class="top">
                         <span [style.color]="f.color">{{ f.number }}</span>
                         <span [innerHtml]="f.type" [style.color]="f.color"></span>
@@ -17,34 +33,84 @@
                 </div>
             </div>
         </div>
-            <div class="col-sm-4 shadow rounded" (click)="sendChoice(2)">
-                <div class="row">
-                    <div 
-                        *ngFor="let s of secondRow" 
-                        class="outline shadow rounded col-xs-4">
-                        <div class="top">
-                            <span [style.color]="s.color">{{ s.number }}</span>
-                            <span [innerHtml]="s.type" [style.color]="s.color"></span>
-                        </div>
-                        <h1 [innerHtml]="s.type" [style.color]="s.color"></h1>
-                        <div class="bottom"><span [innerHtml]="s.type" [style.color]="s.color"></span></div>
+        <div class="col-sm-4 shadow rounded" (click)="sendChoice(2)">
+            <div class="row">
+                <div *ngFor="let s of secondRow" class="outline shadow rounded col-xs-4">
+                    <div class="top">
+                        <span [style.color]="s.color">{{ s.number }}</span>
+                        <span [innerHtml]="s.type" [style.color]="s.color"></span>
                     </div>
+                    <h1 [innerHtml]="s.type" [style.color]="s.color"></h1>
+                    <div class="bottom"><span [innerHtml]="s.type" [style.color]="s.color"></span></div>
                 </div>
             </div>
-            <div class="col-sm-4 shadow rounded" (click)="sendChoice(3)">
-                    <div class="row">
-                        <div 
-                            *ngFor="let t of thirdRow" 
-                            class="outline shadow rounded col-xs-4">
-                            <div class="top">
-                                <span [style.color]="t.color">{{ t.number }}</span>
-                                <span [innerHtml]="t.type" [style.color]="t.color"></span>
-                            </div>
-                            <h1 [innerHtml]="t.type" [style.color]="t.color"></h1>
-                            <div class="bottom"><span [innerHtml]="t.type" [style.color]="t.color"></span></div>
-                        </div>
+        </div>
+        <div class="col-sm-4 shadow rounded" (click)="sendChoice(3)">
+            <div class="row">
+                <div *ngFor="let t of thirdRow" class="outline shadow rounded col-xs-4">
+                    <div class="top">
+                        <span [style.color]="t.color">{{ t.number }}</span>
+                        <span [innerHtml]="t.type" [style.color]="t.color"></span>
                     </div>
+                    <h1 [innerHtml]="t.type" [style.color]="t.color"></h1>
+                    <div class="bottom"><span [innerHtml]="t.type" [style.color]="t.color"></span></div>
                 </div>
+            </div>
+        </div>
     </div>
-</div>    
+</div>
+<button type="button" id="direction-modal" class="btn btn-primary" data-toggle="modal" data-target="#direction" style="display: none;">
+    Open modal
+</button>
+<div class="modal fade primary" id="direction">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-primary text-white">
+                <h4 class="modal-title">Directions</h4>
+                <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <ng-container *ngFor="let direction of directions">
+                    <p><i class="fa fa-hand-point-right"></i> {{ direction }}</p>
+                </ng-container>
+            </div>
 
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" id="result-modal" class="btn btn-primary" data-toggle="modal" data-target="#result" style="display: none;">
+    Open modal
+</button>
+<div class="modal fade primary" id="result" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-primary text-white">
+                <h4 class="modal-title">The card you thought is:</h4>
+                <!-- <button type="button" class="close text-white" data-dismiss="modal">&times;</button> -->
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="outline shadow rounded col-xs-4">
+                    <div class="top">
+                        <span [style.color]="selectedCardsPack[10].color">{{ selectedCardsPack[10].number }}</span>
+                        <span [innerHtml]="selectedCardsPack[10].type" [style.color]="selectedCardsPack[10].color"></span>
+                    </div>
+                    <h1 [innerHtml]="selectedCardsPack[10].type" [style.color]="selectedCardsPack[10].color"></h1>
+                    <div class="bottom"><span [innerHtml]="selectedCardsPack[10].type" [style.color]="selectedCardsPack[10].color"></span></div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="pageRefresh()" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

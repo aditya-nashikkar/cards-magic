@@ -18,6 +18,16 @@ export class CardsComponent implements OnInit {
   userInput: number;
   static round: number = 0; 
   disBtn: boolean;
+  directions = 
+    [
+      'There are 21 cards on the screen divided into three columns.',
+      'Think of any card from those 21 cards.',
+      'Now click on the column where you see your card.',
+      'On clicking the column, cards will reshuffle.',
+      'Now again see where your is and click that column.',
+      'Repeat the step one more time.',
+      'On clicking the third time. The number you thought will pop-up on the screen.'
+    ];
 
   constructor() { }
 
@@ -25,7 +35,8 @@ export class CardsComponent implements OnInit {
     this.getCardsPack();
     this.getTwentyOneRandomCards();
     this.setSelectedCards();
-    this.distributeInThree()
+    this.distributeInThree();
+    document.getElementById('direction-modal').click();
   }
 
   getCardsPack() {
@@ -119,7 +130,7 @@ export class CardsComponent implements OnInit {
 
       if(CardsComponent.round  === 3) {
         this.disBtn = true; 
-        console.log(this.selectedCardsPack[10]);
+        document.getElementById('result-modal').click();
       }
     }
   }
@@ -158,7 +169,8 @@ export class CardsComponent implements OnInit {
     }
   }
 
-  showNumber() {
-    console.log(this.selectedCardsPack[10]);
+  pageRefresh(): void {
+    location.reload();
   }
+
 }
